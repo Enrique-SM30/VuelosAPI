@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VuelosAPI", "VuelosAPI\VuelosAPI.csproj", "{52C09C1D-50DC-4F4C-9AE1-C0B18B024D31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelosAPI_WPF", "VuelosAPI_WPF\VuelosAPI_WPF.csproj", "{8E7C6539-EFC8-4243-8F2F-3BB94A992344}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52C09C1D-50DC-4F4C-9AE1-C0B18B024D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C09C1D-50DC-4F4C-9AE1-C0B18B024D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C09C1D-50DC-4F4C-9AE1-C0B18B024D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C09C1D-50DC-4F4C-9AE1-C0B18B024D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21CD4CE4-F4B2-4F0A-8EE4-B918019CBAD3}
+	EndGlobalSection
+EndGlobal
