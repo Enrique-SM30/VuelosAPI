@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Fonts\digital-7.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

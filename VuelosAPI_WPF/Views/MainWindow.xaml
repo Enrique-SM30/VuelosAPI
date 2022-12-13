@@ -3,37 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VuelosAPI_WPF"
+        xmlns:local="clr-namespace:VuelosAPI_WPF" xmlns:vm="clr-namespace:VuelosAPI_WPF.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#FF242629">
+    <Window.DataContext>
+        <vm:VuelosViewModel></vm:VuelosViewModel>
+    </Window.DataContext>
     <DockPanel Margin="10">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="50" VerticalAlignment="Top">
             <Image Source="/Assets/Avion.jpg" HorizontalAlignment="Left"  Height="40" VerticalAlignment="Center"/>
             <TextBlock VerticalAlignment="Center" Foreground="#FFEBB12B" FontFamily="/Resources/Fonts/#Future Friends" Margin="10,0,0,0" FontSize="20">TABLA DE SALIDAS DE VUELOS</TextBlock>
         </StackPanel>
-        <DataGrid Background="Transparent" BorderBrush="Transparent">
+        <DataGrid Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Vuelos}" GridLinesVisibility="None" HeadersVisibility="Column" CanUserAddRows="False"
+                  CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False"
+                  IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width=".12*">
+                <DataGridTextColumn Width=".12*" Binding="{Binding Hora}">
                     <DataGridTextColumn.Header>
                         HORA
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width=".2*">
+                <DataGridTextColumn Width=".2*" Binding="{Binding Destino}">
                     <DataGridTextColumn.Header>
                         DESTINO
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width=".2*">
+                <DataGridTextColumn Width=".2*" Binding="{Binding Codigo}">
                     <DataGridTextColumn.Header>
                         COD. VUELO
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width=".2*">
+                <DataGridTextColumn Width=".2*" Binding="{Binding Puerta}">
                     <DataGridTextColumn.Header>
                         PUERTA SALIDA
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width=".28*">
+                <DataGridTextColumn Width=".28*" Binding="{Binding Estado}">
                     <DataGridTextColumn.Header>
                         STATUS
                     </DataGridTextColumn.Header>
