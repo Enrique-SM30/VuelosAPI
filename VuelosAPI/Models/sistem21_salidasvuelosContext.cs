@@ -43,7 +43,7 @@ namespace VuelosAPI.Models
 
                 entity.Property(e => e.Estado).HasMaxLength(45);
 
-                entity.Property(e => e.Hora).HasColumnType("time");
+                entity.Property(e => e.Hora).HasMaxLength(5);
 
                 entity.Property(e => e.Puerta).HasMaxLength(3);
             });
