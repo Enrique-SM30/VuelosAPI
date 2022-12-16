@@ -13,7 +13,7 @@ namespace VuelosAPI_WPF.Services
     {
         HttpClient client;
         public VuelosService()
-        {
+        {                                    
             client = new HttpClient()
             {
                 BaseAddress = new Uri("https://localhost:44388/")
