@@ -16,7 +16,7 @@ namespace VuelosAPI_WPF.Services
         {                                    
             client = new HttpClient()
             {
-                BaseAddress = new Uri("https://localhost:44388/")
+                BaseAddress = new Uri("https://aerolineaeg.sistemas19.com/")
             };
         }
         public async Task<List<Vuelo>> GetVuelos()
@@ -39,6 +39,27 @@ namespace VuelosAPI_WPF.Services
             {
                 return new List<Vuelo>();
             }
+        }
+
+        public async Task<bool> Update(Vuelo p)
+        {
+            var json = JsonConvert.SerializeObject(p);
+            var response = await client.PutAsync("api/Vuelos", new StringContent(json, Encoding.UTF8,
+                "application/json"));
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest) //BadRequest
+            {
+                return false;
+            }
+            return true;
+        }
+        public async Task<bool> Delete(Vuelo p)
+        {
+            var response = await client.DeleteAsync("api/Vuelos/" + p.Codigo);
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest) //BadRequest
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -1,100 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:VuelosAPI_Xamarin.Views" xmlns:vm="clr-namespace:VuelosAPI_Xamarin.ViewModels"
              x:Class="VuelosAPI_Xamarin.MainPage" Background="WhiteSmoke">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Black"></Setter>
-            </Style>
-            <Style TargetType="Frame">
-                <Setter Property="Padding" Value="0"></Setter>
-                <Setter Property="Margin" Value="10,0,10,0"></Setter>
+    <ContentPage.BindingContext>
+        <vm:VuelosViewModel  x:Name="vm"></vm:VuelosViewModel>
+    </ContentPage.BindingContext>
+    
 
-            </Style>
-            <Style TargetType="Entry">
-                <Setter Property="BackgroundColor" Value="AntiqueWhite"></Setter>
 
-            </Style>
-            <!--<Style TargetType="Image">
-                <Setter Property="WidthRequest" Value="10"></Setter>
-                <Setter Property="Margin" Value="5,0,100,0"></Setter>
-                <Setter Property="Aspect" Value="AspectFit"></Setter>
-            </Style>-->
-            <Style TargetType="Button">
-                <Setter Property="Background" Value="#FFEBB12B"></Setter>
-                <Setter Property="CornerRadius" Value="6"></Setter>
-                <Setter Property="FontSize" Value="17"></Setter>
-                <Setter Property="HeightRequest" Value="55"/>
-
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ScrollView >
     <StackLayout>
         <StackLayout Orientation="Horizontal" Padding="10" Background="#FF242629" Spacing="20">
             <Image HeightRequest="35" Source="Avion.jpg"></Image>
             <Label VerticalOptions="Center" TextColor="#FFEBB12B" FontSize="20" FontAttributes="Bold">SALIDAS VUELOS</Label>
         </StackLayout>
-            <Frame Margin="10,0,10,15" CornerRadius="6" Padding="11" BackgroundColor="LightGray">
-                <StackLayout>
-                    <Label FontAttributes="Bold" FontSize="18">CODIGO DE VUELO</Label>
-                    <Label FontSize="16">HORA</Label>
-                    <Label FontSize="16">DESTINO</Label>
-                    <Label FontSize="17">PUERTA</Label>
-                    <Grid Margin="0,10,20,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label FontAttributes="Bold" VerticalOptions="End" FontSize="17" TextColor="Green">STATUS</Label>
-                        <StackLayout Orientation="Horizontal" Grid.Column="1">
-                            <Button HeightRequest="40" FontSize="15" Text="CANCELAR"></Button>
-                            <Button HeightRequest="40" FontSize="15" Text="EDITAR"></Button>
-                        </StackLayout>
-                    </Grid>
-                </StackLayout>
-            </Frame>
-            <Frame Margin="10,0,10,15" CornerRadius="6" Padding="11" BackgroundColor="LightGray">
-                <StackLayout>
-                    <Label FontAttributes="Bold" FontSize="18">CODIGO DE VUELO</Label>
-                    <Label FontSize="16">HORA</Label>
-                    <Label FontSize="16">DESTINO</Label>
-                    <Label FontSize="17">PUERTA</Label>
-                    <Grid Margin="0,10,20,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label FontAttributes="Bold" VerticalOptions="End" FontSize="17" TextColor="Green">STATUS</Label>
-                        <StackLayout Orientation="Horizontal" Grid.Column="1">
-                            <Button HeightRequest="40" FontSize="15" Text="CANCELAR"></Button>
-                            <Button HeightRequest="40" FontSize="15" Text="EDITAR"></Button>
-                        </StackLayout>
-                    </Grid>
-                </StackLayout>
-            </Frame>
-            <Frame Margin="10,0,10,15" CornerRadius="6" Padding="11" BackgroundColor="LightGray">
-                <StackLayout>
-                    <Label FontAttributes="Bold" FontSize="18">CODIGO DE VUELO</Label>
-                    <Label FontSize="16">HORA</Label>
-                    <Label FontSize="16">DESTINO</Label>
-                    <Label FontSize="17">PUERTA</Label>
-                    <Grid Margin="0,10,20,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label FontAttributes="Bold" VerticalOptions="End" FontSize="17" TextColor="Green">STATUS</Label>
-                        <StackLayout Orientation="Horizontal" Grid.Column="1">
-                            <Button HeightRequest="40" FontSize="15" Text="CANCELAR"></Button>
-                            <Button HeightRequest="40" FontSize="15" Text="EDITAR"></Button>
-                        </StackLayout>
-                    </Grid>
-                </StackLayout>
-            </Frame>
-        
-            <Button Text="AGREGAR VUELO" FontAttributes="Bold" Margin="110,0,110,20"></Button>
+        <ContentView>
+            <ContentView.Resources>
+                <views:AgregarView x:Key="agregar"></views:AgregarView>
+                <views:PrincipalView x:Key="principal"></views:PrincipalView>
+                <views:EditarView x:Key="editar"></views:EditarView>
+                <Style TargetType="ContentView">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" TargetType="ContentView" Value="{x:Static vm:Vistas.Agregar}">
+                            <Setter Property="Content"  Value="{StaticResource agregar}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" TargetType="ContentView"  Value="{x:Static vm:Vistas.Ver}">
+                            <Setter Property="Content"  Value="{StaticResource principal}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" TargetType="ContentView"  Value="{x:Static vm:Vistas.Editar}">
+                            <Setter Property="Content"  Value="{StaticResource editar}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentView.Resources>
+        </ContentView>
     </StackLayout>
-    </ScrollView>
+    
 </ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:VuelosAPI_Xamarin.ViewModels"
+             x:Class="VuelosAPI_Xamarin.Views.PrincipalView">
+    
+    <ContentView.Content>
+        <StackLayout>
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding Vuelos}" Margin="10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0" Padding="15" BorderColor="WhiteSmoke" BackgroundColor="LightGray" x:Name="vuelo">
+                                <StackLayout>
+                                    <Label FontAttributes="Bold" FontSize="20" x:Name="cod" Text="{Binding Codigo}"></Label>
+                                    <Label FontSize="16" Text="{Binding Hora}"></Label>
+                                    <Label FontSize="16" Text="{Binding Destino}"></Label>
+                                    <Label FontSize="17" Text="{Binding Puerta}"></Label>
+                                    <Grid Margin="0,0,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"></ColumnDefinition>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontAttributes="Bold" VerticalOptions="End" FontSize="17" TextColor="Green"  Text="{Binding Estado}"></Label>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="1" WidthRequest="190">
+                                            <Button HeightRequest="40" FontSize="15" Text="CANCELAR" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.CancelarCommand}" CommandParameter="{Binding .}">
+                                            </Button>
+                                            <Button HeightRequest="40" FontSize="15" Text="EDITAR" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.VistaEditarCommand}" CommandParameter="{Binding .}">
+                                            </Button>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <Button Text="AGREGAR VUELO" FontAttributes="Bold" Margin="110,0,110,20" Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static vm:Vistas.Agregar}"></Button>
+        </StackLayout>
+
+    </ContentView.Content>
+</ContentView>

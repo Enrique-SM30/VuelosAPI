@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VuelosAPI_Xamarin.Views.AgregarView">
-  <ContentView.Content>
-      <StackLayout>
-         
+             x:Class="VuelosAPI_Xamarin.Views.EditarView">
+    <ContentView.Content>
+        <StackLayout>
+
             <Label FontAttributes="Bold" FontSize="20" Margin="15,0,0,0">NUEVO VUELO
             </Label>
             <Frame Margin="10,0,10,15" CornerRadius="6" Padding="11,11,0,11" BackgroundColor="LightGray">
                 <StackLayout Margin="0,0,30,0">
-                    <Entry BackgroundColor="Transparent" Placeholder="Codigo" MaxLength="5" Text="{Binding Vuelo.Codigo}">
+                    <Entry BackgroundColor="Transparent" Placeholder="Codigo" MaxLength="5" Text="{Binding Vuelo.Codigo}" IsReadOnly="True">
                     </Entry>
                     <TimePicker Time="{Binding Horaa, Mode=TwoWay}">
-                        
+
                     </TimePicker>
                     <Entry BackgroundColor="Transparent" Placeholder="Destino" MaxLength="45" Text="{Binding Vuelo.Destino}">
                     </Entry>
-                    <Picker ItemsSource="{Binding Puertas}" BackgroundColor="Transparent" Title="Puerta ('A00')" SelectedItem="{Binding Vuelo.Puerta}">
+                    <Picker  ItemsSource="{Binding Puertas}" BackgroundColor="Transparent" Title="Puerta ('A00')" SelectedItem="{Binding Vuelo.Puerta}">
                     </Picker>
                     <Grid Margin="0,10,20,0">
                         <Grid.ColumnDefinitions>
@@ -26,12 +26,19 @@
                         <Label FontAttributes="Bold" VerticalOptions="End" FontSize="17" TextColor="Green" Text="{Binding Vuelo.Estado}"></Label>
                         <StackLayout Orientation="Horizontal" Grid.Column="1">
                             <Button HeightRequest="40" FontSize="15" Text="CANCELAR" Command="{Binding VolverCommand}"></Button>
-                            <Button HeightRequest="40" FontSize="15" Text="AGREGAR" Command="{Binding AgregarCommand}"></Button>
+                            <Button HeightRequest="40" FontSize="15" Text="EDITAR" Command="{Binding EditarCommand}">
+                                <Button.CommandParameter>
+                                    <x:Boolean>
+                                        false
+                                    </x:Boolean>
+                                </Button.CommandParameter>
+                            </Button>
+
                         </StackLayout>
                     </Grid>
                 </StackLayout>
             </Frame>
             <Label HorizontalOptions="Center" FontSize="18" TextColor="Red" Text="{Binding Error}"></Label>
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

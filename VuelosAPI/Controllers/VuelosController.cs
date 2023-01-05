@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Timers;
 using VuelosAPI.Models;
 using VuelosAPI.Repositories;
+using System.Threading;
 
 namespace VuelosAPI.Controllers
 {
@@ -9,18 +11,21 @@ namespace VuelosAPI.Controllers
     [ApiController]
     public class VuelosController : ControllerBase
     {
+        
+        object data = new object();
         private sistem21_salidasvuelosContext context;
         Repository<Vuelo> repository;
 
         public VuelosController(sistem21_salidasvuelosContext context)
         {
+
             this.context = context;
             repository = new(context);
         }
         [HttpGet]
         public IActionResult Get()
         {
-            var data = repository.Get().OrderBy(x => x.Hora);
+            data = repository.Get().OrderBy(x => x.Hora);
             return Ok(data);
         }
         [HttpPost]
@@ -31,7 +36,7 @@ namespace VuelosAPI.Controllers
                 return BadRequest("Especifique el vuelo");
             }
 
-            if (Validate(vuelo, out List<string> errores, true))
+            if (Validate(vuelo, out List<string> errores, true, false))
             {
                 repository.Insert(vuelo);
                 return Ok();
@@ -45,12 +50,15 @@ namespace VuelosAPI.Controllers
         [HttpPut]
         public IActionResult Put(Vuelo vuelo)
         {
+            bool Cancelado=false;
+            if (vuelo.Estado == "CANCELADO")
+                Cancelado = true;
             if (vuelo == null)
             {
                 return BadRequest("Especifique el vuelo");
             }
 
-            if (Validate(vuelo, out List<string> errores, false))
+            if (Validate(vuelo, out List<string> errores, false, Cancelado))
             {
                 var entidad = repository.Get(vuelo.Codigo);
                 if (entidad == null)
@@ -87,7 +95,7 @@ namespace VuelosAPI.Controllers
         }
 
 
-        private bool Validate(Vuelo vuelo, out List<string> errors, bool esPost)
+        private bool Validate(Vuelo vuelo, out List<string> errors, bool esPost, bool Cancelado)
         {
             errors = new List<string>();
             if (string.IsNullOrWhiteSpace(vuelo.Codigo))
@@ -96,6 +104,11 @@ namespace VuelosAPI.Controllers
             {
                 if (repository.Get().Any(x => x.Codigo == vuelo.Codigo))
                     errors.Add("Este codigo de vuelo ya existe");
+            }
+            if(Cancelado==false)
+            {
+                if (TimeSpan.Parse(vuelo.Hora) < DateTime.Now.TimeOfDay)
+                    errors.Add("La hora no puede ser menor a la hora actual");
             }
             if (string.IsNullOrWhiteSpace(vuelo.Puerta))
                 errors.Add("Escriba la puerta de abordaje del vuelo");

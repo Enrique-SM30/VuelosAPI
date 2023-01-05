@@ -17,14 +17,14 @@
                     Value="Bold" />
             <Setter Property="Padding"
                     Value="5" />
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="32"/>
         </Style>
         <Style TargetType="DataGridCell">
             <Setter Property="Background" Value="#FF35373A"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF242629"/>
             <Setter Property="BorderThickness" Value="0,2,0,2"/>
-            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </Application.Resources>

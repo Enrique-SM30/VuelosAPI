@@ -3,6 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VuelosAPI_Xamarin.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="Padding" Value="0"></Setter>
+                <Setter Property="Margin" Value="10,0,10,0"></Setter>
 
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="AntiqueWhite"></Setter>
+
+            </Style>
+            <!--<Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="10"></Setter>
+                <Setter Property="Margin" Value="5,0,100,0"></Setter>
+                <Setter Property="Aspect" Value="AspectFit"></Setter>
+            </Style>-->
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#FFEBB12B"></Setter>
+                <Setter Property="CornerRadius" Value="6"></Setter>
+                <Setter Property="FontSize" Value="17"></Setter>
+                <Setter Property="HeightRequest" Value="55"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VuelosAPI", "VuelosAPI\Vuel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VuelosAPI_WPF", "VuelosAPI_WPF\VuelosAPI_WPF.csproj", "{8E7C6539-EFC8-4243-8F2F-3BB94A992344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelosAPI_Xamarin.Android", "VuelosAPI_Xamarin\VuelosAPI_Xamarin.Android\VuelosAPI_Xamarin.Android.csproj", "{247D22EA-D121-4B51-91FD-08BA674B4F29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelosAPI_Xamarin.Android", "VuelosAPI_Xamarin\VuelosAPI_Xamarin.Android\VuelosAPI_Xamarin.Android.csproj", "{4175FB0C-4B93-41C5-931A-C47293FE252C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelosAPI_Xamarin", "VuelosAPI_Xamarin\VuelosAPI_Xamarin\VuelosAPI_Xamarin.csproj", "{304F5B7D-89E8-4025-B7C5-CFE51372E3AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelosAPI_Xamarin", "VuelosAPI_Xamarin\VuelosAPI_Xamarin\VuelosAPI_Xamarin.csproj", "{8D4172A1-6B9D-4835-8129-94A01C792361}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +25,16 @@ Global
 		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E7C6539-EFC8-4243-8F2F-3BB94A992344}.Release|Any CPU.Build.0 = Release|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{247D22EA-D121-4B51-91FD-08BA674B4F29}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{304F5B7D-89E8-4025-B7C5-CFE51372E3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{304F5B7D-89E8-4025-B7C5-CFE51372E3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{304F5B7D-89E8-4025-B7C5-CFE51372E3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{304F5B7D-89E8-4025-B7C5-CFE51372E3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4175FB0C-4B93-41C5-931A-C47293FE252C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8D4172A1-6B9D-4835-8129-94A01C792361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4172A1-6B9D-4835-8129-94A01C792361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4172A1-6B9D-4835-8129-94A01C792361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4172A1-6B9D-4835-8129-94A01C792361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
