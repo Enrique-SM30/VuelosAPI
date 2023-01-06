@@ -88,6 +88,7 @@ namespace VuelosAPI_Xamarin.ViewModels
                 }
                 else
                 {
+                    Vuelos.Clear();
                     datos.ForEach(x => Vuelos.Add(x));
                 }
                 Actualizar(nameof(Vuelos));

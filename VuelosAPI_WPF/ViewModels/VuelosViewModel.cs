@@ -73,6 +73,7 @@ namespace VuelosAPI_WPF.ViewModels
             }
             else
             {
+                Vuelos.Clear();
                 datos.ForEach(x => Vuelos.Add(x));
             }
             foreach (var item in Vuelos)
@@ -110,15 +111,15 @@ namespace VuelosAPI_WPF.ViewModels
                 else
                 {
                     if (cancelados.Count() == 0)
-                        cancelados.Add(item);
+                        cancelados.Add(item);   
                     if (!timerCancel.Enabled)
                         timerCancel.Start();
                 }
                 
             }
-            Vuelos.Clear();
-            datos = await service.GetVuelos();
-            datos.ForEach(x => Vuelos.Add(x));
+            //Vuelos.Clear();
+            //datos = await service.GetVuelos();
+            //datos.ForEach(x => Vuelos.Add(x));
             Actualizar(nameof(Vuelos));
         }
         async void CargarVuelos()
